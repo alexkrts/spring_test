@@ -4,10 +4,12 @@ build/
 .classpath
 .project
 .settings/
-kpi.iml
-kpi.ipr
-kpi.iws
+.iml
+.ipr
+.iws
 .classpath
 .project
 /bin*
+out
+.gitignore
 
