@@ -9,7 +9,6 @@ import java.util.List;
  * Created by alex on 2/25/2015.
  */
 
-@Repository
 public interface UserDao {
 
     User create(User user);

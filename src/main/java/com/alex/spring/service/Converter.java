@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
  * Created by alex on 2/25/2015.
  */
 
-@Service
 public interface Converter {
 
     UserDto toDto(User user);

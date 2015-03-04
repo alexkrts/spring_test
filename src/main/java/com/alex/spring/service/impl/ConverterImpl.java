@@ -3,10 +3,13 @@ package com.alex.spring.service.impl;
 import com.alex.spring.dto.UserDto;
 import com.alex.spring.model.User;
 import com.alex.spring.service.Converter;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by alex on 2/25/2015.
  */
+
+@Service
 public class ConverterImpl implements Converter {
     @Override
     public UserDto toDto(User user) {

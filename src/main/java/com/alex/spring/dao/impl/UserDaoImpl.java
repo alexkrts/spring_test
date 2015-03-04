@@ -2,12 +2,15 @@ package com.alex.spring.dao.impl;
 
 import com.alex.spring.dao.UserDao;
 import com.alex.spring.model.User;
+import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by alex on 2/25/2015.
  */
+@Repository
 public class UserDaoImpl extends HibernateDao implements UserDao {
     @Override
     public User create(User user) {
@@ -21,7 +24,7 @@ public class UserDaoImpl extends HibernateDao implements UserDao {
 
     @Override
     public List<User> findAll() {
-        return null;
+        return returnUserListTest();
     }
 
     @Override
@@ -32,5 +35,13 @@ public class UserDaoImpl extends HibernateDao implements UserDao {
     @Override
     public void remove(User user) {
         super.delete(user);
+    }
+
+    private List<User> returnUserListTest(){
+        ArrayList<User> testList = new ArrayList<User>();
+        testList.add(new User(1L, "firstName1", "secondName1", "Domain1"));
+        testList.add(new User(1L, "firstName2", "secondName2", "Domain2"));
+
+        return testList;
     }
 }

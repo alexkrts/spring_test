@@ -1,9 +1,6 @@
 package com.alex.spring.model;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,8 +8,11 @@ import javax.persistence.*;
  * Created by alex on 2/25/2015.
  */
 
+@Getter
 @Data
 @EqualsAndHashCode(exclude = {"id","companyDomain"})
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "KPI")
 public class User {
@@ -30,5 +30,10 @@ public class User {
 
     @Column(name = "COMPANY_DOMAIN")
     private String companyDomain;
+
+/*    public Long getId(){
+        return id;
+
+    }*/
 
 }
