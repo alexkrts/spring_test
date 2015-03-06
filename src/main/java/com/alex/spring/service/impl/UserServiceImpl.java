@@ -9,6 +9,7 @@ import com.alex.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -27,11 +28,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public void setUser(UserDto userDto) {
         User user = converter.toEntity(userDto);
-        if(user.getId() == null) {
-            userDao.create(user);
-        } else {
-            userDao.update(user);
-        }
     }
 
     @Override
@@ -42,12 +38,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public void removeUser(long id) {
         User user = userDao.find(id);
-        userDao.remove(user);
+        //userDao.remove(user);
     }
 
     @Override
-    public List<User> fingAll() {
-        return userDao.findAll();
+    public List<UserDto> fingAll() {
+        List<UserDto> usersDto = new LinkedList<UserDto>();
+        for(User user: userDao.findAll()) {
+            usersDto.add(converter.toDto(user));
+        }
+        return usersDto;
     }
 
 

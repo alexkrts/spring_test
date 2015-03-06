@@ -28,7 +28,7 @@ public class ConverterImpl implements Converter {
         user.setFirstName(parseFirstName(userDto));
         user.setSecondName(parseSecondName(userDto));
         user.setCompanyDomain(parseCompanyDomain(userDto));
-        return null;
+        return user;
     }
 
     private String parseFirstName(UserDto userDto) {
