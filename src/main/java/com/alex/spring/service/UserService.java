@@ -13,7 +13,7 @@ public interface UserService {
     void setUser(UserDto user);
     UserDto getUser(long id);
     void removeUser(long id);
-    List<UserDto> fingAll();
+    List<UserDto> findAll();
 
 
 

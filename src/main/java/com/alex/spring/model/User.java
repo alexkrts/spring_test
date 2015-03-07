@@ -14,7 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "KPI")
+@Table(name = "springusers")
 public class User {
 
     @Id

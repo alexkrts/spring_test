@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void setUser(UserDto userDto) {
         User user = converter.toEntity(userDto);
+        userDao.update(user);
     }
 
     @Override
@@ -38,13 +39,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public void removeUser(long id) {
         User user = userDao.find(id);
-        //userDao.remove(user);
+        userDao.remove(user);
     }
 
     @Override
-    public List<UserDto> fingAll() {
+    public List<UserDto> findAll() {
         List<UserDto> usersDto = new LinkedList<UserDto>();
-        for(User user: userDao.findAll()) {
+        for (User user : userDao.findAll()) {
             usersDto.add(converter.toDto(user));
         }
         return usersDto;

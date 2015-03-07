@@ -26,7 +26,7 @@ public class UserController {
     @RequestMapping(value = USERS, method = RequestMethod.GET)
     public List<UserDto> getUsers() {
         log.info("Get all users");
-        return service.fingAll();
+        return service.findAll();
     }
 
     @RequestMapping(value = USER, method = RequestMethod.GET)

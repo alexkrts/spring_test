@@ -3,12 +3,13 @@ package com.alex.spring.service.impl;
 import com.alex.spring.dto.UserDto;
 import com.alex.spring.model.User;
 import com.alex.spring.service.Converter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by alex on 2/25/2015.
  */
-
+@Slf4j
 @Service
 public class ConverterImpl implements Converter {
     @Override
@@ -16,7 +17,6 @@ public class ConverterImpl implements Converter {
         UserDto userDto = new UserDto();
         userDto.setId(user.getId());
         userDto.setUsername(user.getFirstName() + "_" + user.getSecondName());
-        // better to do it with string pattern (template)
         userDto.setEmail(user.getFirstName().toLowerCase() + "_" + user.getSecondName().toLowerCase() + "@" + user.getCompanyDomain());
         return userDto;
     }
@@ -32,14 +32,14 @@ public class ConverterImpl implements Converter {
     }
 
     private String parseFirstName(UserDto userDto) {
-        return null; // TODO: parse first part of username Firstname_Secondname
+        return userDto.getUsername().substring(0, userDto.getUsername().indexOf("_"));
     }
 
     private String parseSecondName(UserDto userDto) {
-        return null; // TODO: parse second part of username Firstname_Secondname
+        return userDto.getUsername().substring(userDto.getUsername().indexOf("_"), userDto.getUsername().length() - 1);
     }
 
     private String parseCompanyDomain(UserDto userDto) {
-        return null; // TODO: parse text after '@' symbol firstname_secondname@domain.com
+        return userDto.getEmail().substring(userDto.getEmail().indexOf('@') + 1, userDto.getEmail().length() - 1);
     }
 }

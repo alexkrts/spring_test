@@ -35,8 +35,8 @@ public class UrlController {
                                               HttpServletResponse response*/) throws Exception {
         log.info("load index page");
         ModelAndView model = new ModelAndView("index");
-        model.addObject("user1", userService.fingAll().get(0));
-        model.addObject("user2", userService.fingAll().get(1));
+        model.addObject("user1", userService.findAll().get(0));
+        model.addObject("user2", userService.findAll().get(1));
 
         return model;
     }
