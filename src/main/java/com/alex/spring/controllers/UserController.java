@@ -32,7 +32,7 @@ public class UserController {
     @RequestMapping(value = USER, method = RequestMethod.GET)
     public UserDto getUser(@PathVariable("userId") Long id) {
         log.info("Get user by id: " + id);
-        return service.getUser(id);
+        return service.findUser(id);
     }
 
     @RequestMapping(value = USERS, method = RequestMethod.POST)
@@ -50,7 +50,7 @@ public class UserController {
     @RequestMapping(value = USER, method = RequestMethod.DELETE)
     public void deleteUser(@PathVariable("userId") Long id) {
         log.info("Delete user by id: " + id);
-        service.removeUser(id);
+        service.deleteUser(id);
     }
 
 }

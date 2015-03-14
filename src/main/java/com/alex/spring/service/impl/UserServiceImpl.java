@@ -32,14 +32,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getUser(long id) {
+    public UserDto findUser(long id) {
         return converter.toDto(userDao.find(id));
     }
 
     @Override
-    public void removeUser(long id) {
+    public void deleteUser(long id) {
         User user = userDao.find(id);
-        userDao.remove(user);
+        userDao.delete(user);
     }
 
     @Override
